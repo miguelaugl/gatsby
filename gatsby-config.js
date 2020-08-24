@@ -24,32 +24,9 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-plugin-canonical-urls`,
-      options: {
-        siteUrl: `http://localhost:9000`,
-      },
-    },
-    {
       resolve: 'gatsby-plugin-nprogress',
       options: {
         color: `#7159c1`,
-      },
-    },
-    {
-      resolve: `gatsby-plugin-google-analytics`,
-      options: {
-        trackingId: "YOUR_GOOGLE_ANALYTICS_TRACKING_ID",
-      },
-    },
-    {
-      resolve: `gatsby-plugin-prefetch-google-fonts`,
-      options: {
-        fonts: [
-          {
-            family: `Roboto`,
-            variants: [`300`, `500`, `700`],
-          },
-        ],
       },
     },
     {

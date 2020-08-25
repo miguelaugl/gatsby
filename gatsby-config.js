@@ -1,10 +1,20 @@
 const siteMetadata = require('./config/metadata');
+const path = require('path');
 
 module.exports = {
   siteMetadata,
   plugins: [
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-sitemap`,
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `images`,
+        path: path.join(__dirname, `src`, `assets`, `images`),
+      },
+    },
+    `gatsby-transformer-sharp`,
+    `gatsby-plugin-sharp`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
@@ -27,6 +37,17 @@ module.exports = {
       resolve: `gatsby-plugin-styled-components`,
       options: {
         displayName: process.env.NODE_ENV !== 'production',
+      },
+    },
+    {
+      resolve: `gatsby-plugin-prefetch-google-fonts`,
+      options: {
+        fonts: [
+          {
+            family: `Roboto`,
+            variants: [`300`, '400', '500', '700'],
+          },
+        ],
       },
     },
     {

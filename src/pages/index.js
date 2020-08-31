@@ -1,39 +1,43 @@
 import React from 'react';
+import PostLink from '../components/PostLink';
 
-import { Container } from './styles';
+export default function Home({ data: { allMarkdownRemark } }) {
+  const { edges } = allMarkdownRemark;
 
-export default function Home({ data }) {
-  const { allImageSharp: { edges }} = data;
+  const posts = edges.map(edge => (
+    <PostLink key={edge.node.id} post={edge.node}/>
+  ));
 
-  const catImages = edges.map(({ node }) => node.fluid.src);
+  console.log(posts);
 
   return (
-    <Container>
-      <ul>
-        {catImages.map(image => (
-          <li>
-            <img src={image} alt="Gato fofo"/>
-          </li>
-        ))}
-      </ul>
-    </Container>
+    <div>
+      {posts}
+    </div>
   );
 }
 
-export const query = graphql`
+export const pageQuery = graphql`
   query {
-    allImageSharp(filter: {
-      fluid: {
-        originalName: {regex: "/cat/"}
-      },
-    }) {
+    allMarkdownRemark(sort: { order: DESC, fields: [frontmatter___date] }) {
       edges {
         node {
-          fluid(maxWidth: 200, maxHeight: 200) {
-            src
+          id
+          excerpt(pruneLength: 250)
+          frontmatter {
+            path
+            date(formatString: "MMMM DD, YYYY")
+            title
+            featuredImage {
+              childImageSharp {
+                fixed(width: 200, height: 200) {
+                  ...GatsbyImageSharpFixed
+                }
+              }
+            }
           }
         }
       }
     }
   }
-`;
+`

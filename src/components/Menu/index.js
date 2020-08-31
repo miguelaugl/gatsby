@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'gatsby';
 
 import { Wrapper, Container } from './styles';
 
@@ -8,10 +9,7 @@ export default function Menu() {
       <Container>
         <ul>
           <li>
-            <a href="/" >Home</a>
-          </li>
-          <li>
-            <a href="/about" >About</a>
+            <Link to="/">Home</Link>
           </li>
         </ul>
       </Container>

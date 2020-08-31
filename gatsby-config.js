@@ -13,6 +13,13 @@ module.exports = {
         path: path.join(__dirname, `src`, `assets`, `images`),
       },
     },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `pages`,
+        path: path.join(__dirname, `src`, `pages`),
+      },
+    },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {
@@ -57,9 +64,7 @@ module.exports = {
         ignore: [`**/styles.js`],
       },
     },
-    {
-      resolve: `gatsby-transformer-remark`,
-    },
+    `gatsby-transformer-remark`,
     `gatsby-plugin-offline`,
   ]
 };

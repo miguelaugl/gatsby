@@ -5,6 +5,7 @@ module.exports = {
     description: 'This is a project made to understand and learn about gatsby',
     social: {
       twitter: 'twitter.com',
+      gabriel: 'Nadaleti'
     },
   },
 };

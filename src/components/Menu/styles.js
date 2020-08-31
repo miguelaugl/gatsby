@@ -7,7 +7,7 @@ export const Wrapper = styled.section`
 
 export const Container = styled.nav`
   width: 100%;
-  max-width: 1180px;
+  max-width: 118rem;
   margin: 0 auto;
   height: 6rem;
   padding: 0 1rem;
